@@ -101,19 +101,7 @@ elif choice == "login":
         username = st.text_input("Username")
         password = st.text_input("Password", type="password")
 
-        if st.button("login"):
-            if username in stored_data and stored_data[username]["password"] == hash_password(password):
-                st.session_state.failed_attempts = 0
-                st.success(f"🤖 Welcome {username}")
-            else:
-                st.session_state.failed_attempts += 1
-                remaining = 3 - st.session_state.failed_attempts
-                st.error(f"⚠️ Invalid Credentials! Attempts left: {remaining}")
-
-                if st.session_state.failed_attempts >= 3:
-                    st.session_state.lockout_time = time.time() + Lockdown_duration
-                    st.error(" ✋ To many failed attempts. Locked for 60 seconds")
-                    st.stop()
+      from hashlib import pbkdf2_hmac
 
 
 
