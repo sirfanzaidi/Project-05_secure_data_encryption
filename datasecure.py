@@ -99,7 +99,7 @@ elif choice == "login":
         username = st.text_input("Username")
         password = st.text_input("Password", type="password")
 
-        if st.button("login")
+        if st.button("login"):
             if username in stored_data and stored_data[username]["password"] == hash_password(password):
                 st.session_state.failed_attempts = 0
                 st.success(f"🤖 Welcome {username}")
