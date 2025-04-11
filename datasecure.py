@@ -76,7 +76,9 @@ elif choice == "Register":
     password = st.text_input("Choose Password", type="password")
 
     if st.button("Register"):
-        if username and password:
+        if not username or not password:
+            st.error("Both fields are required.")
+        elif username in stored_data:
             st.warning("☢️ User already exists.")
         else:
             stored_data[username] = {
@@ -87,7 +89,7 @@ elif choice == "Register":
             st.success("🎉 User register sucessfully")
     else:
         st.error("Both fields are required.")
-
+        
 elif choice == "login":
         st.subheader("🔑 User Login")
 
