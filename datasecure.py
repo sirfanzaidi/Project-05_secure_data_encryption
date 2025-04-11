@@ -145,7 +145,7 @@ elif choice == "Retieve Data":
             st.info("No Data Found")
     else:
         st.write("Encrypt Data Entries:")
-        for i, item in enumerate(user_data)
+        for i, item in enumerate(user_data):
             st.code(item,language="text")
         encrypt_Input = st.text_area("Enter Encrypted Text")
         passkey = st.text_input("Enter Passkey To Decrypt", type="password")
